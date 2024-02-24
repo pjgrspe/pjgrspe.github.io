@@ -1,6 +1,7 @@
 /*PAGE STYLE*/
 html {
   font-size: 14px;
+  background-color: #cccccc
 }
 
 @media (min-width: 768px) {
