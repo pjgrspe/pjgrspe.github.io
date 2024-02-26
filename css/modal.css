@@ -1,0 +1,28 @@
+﻿/* Center the modal container */
+.modal-dialog {
+    margin: auto; /* Automatic margins for vertical centering */
+    display: flex;
+    align-items: center; /* Vertical centering within the dialog  */
+    justify-content: center; /* Horizontal centering within the dialog */
+}
+
+/* Glass-like effect for the modal content */
+.modal-content {
+    background-color: rgba(204, 204, 204, 0.8); /* White with an opacity of 0.8 */
+    backdrop-filter: blur(10px); /* Adds the blur effect */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Blur the background (assuming an element to blur is behind the modal) */
+body.modal-open .modal-backdrop {
+    backdrop-filter: blur(10px);
+}
+
+.modal-header {
+    border-bottom:none
+}
+
+.modal-footer {
+    border-top: none;
+}

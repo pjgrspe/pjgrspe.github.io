@@ -6,7 +6,7 @@
     background-color: #f5f5f5;
     pointer-events: none; /* Makes it non-clickable */
     mix-blend-mode: difference; /* Creates a unique visual effect */
-    z-index: 999; /* Ensures it's on top */
+    z-index: 1060; /* Ensures it's on top */
     transition: transform 0.2s ease-out; /* Smooth transition */
 }
 

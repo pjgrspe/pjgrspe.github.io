@@ -30,7 +30,6 @@
 }
 
 .full-screen-loader:nth-child(1) {
-    background-color: #000000;
     -webkit-animation-delay: 2.7s;
     animation-delay: 2.7s;
 }

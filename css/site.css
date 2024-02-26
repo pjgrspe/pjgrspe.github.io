@@ -18,26 +18,47 @@ html {
   min-height: 100%;
 }
 
-*::-webkit-scrollbar {
-    display:none;
+@media (hover: none) {
+    /* Styles to disable the cursor on touchscreens */
+    .cursor {
+        display: none;
+    }
+}
+
+/* General scrollbar area */
+::-webkit-scrollbar {
+    width: 10px; /* Adjust the width as needed */
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+/* The scrollbar handle (thumb) */
+::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-radius: 8px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #666; /* Slightly darker on hover */
 }
 
 body {
-    margin-bottom: 60px;
+    margin-bottom: 60px; /* Adjust as needed */
     margin: 0px;
     font-family: "Chivo Mono", monospace;
+    overflow-x: hidden;
+    position: relative;
 }
 
-
-#category_page {
-    background-color:#cccccc;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-#contact_page {
-    background-color: #cccccc;
-}
-
-footer {
+#category_page,#contact_page,#about_page,footer {
     background-color: #cccccc;
 }
 
@@ -115,33 +136,7 @@ section {
     transform: translateY(0);
 }
 
-/* arrow fade in */
-.category-text {
-    position: relative; /* Allows positioning of the arrow within the div */
-    transition: font-size 0.3s ease-out;
-}
 
-.category-text:hover {
-    font-size: 68px; /* Adjust as desired. Decrease the value for more shrink */
-    transition: font-size 0.3s ease; /* Transition for text size */
-}
-
-.fas.fa-arrow-right {
-    opacity: 0; /* Hide the arrow initially */
-    position: absolute; /* Position relative to the parent */
-    right: 10px; /* Adjust right offset as needed */
-    top: 50%; /* Vertically center the arrow */
-    transform: translateY(-50%);
-    transition: opacity 0.3s ease; /* Add a fade-in/out transition */
-}
-
-.category-text:hover .fas.fa-arrow-right {
-    opacity: 1; /* Make the arrow visible on hover */
-}
-
-.clickable-div {
-    cursor: none;
-}
 
 
 /*TEXT STYLES*/
@@ -172,6 +167,33 @@ section {
     color: black;
 }
 
+/* Tablet: 768px */
+@media (min-width: 768px) and (max-width: 991px) {
+    .chivo-mono-h4 {
+        font-size: 28px;
+    }
+}
+
+/* Mobile: 320px */
+@media (max-width: 767px) {
+    .chivo-mono-h4 {
+        font-size: 20px;
+    }
+}
+
+/* Mobile: 320px */
+@media (max-width: 455px) {
+    .chivo-mono-h4 {
+        font-size: 14px;
+    }
+}
+
+/* CATEGORY TEXT */
+.category-text {
+    position: relative; /* Allows positioning of the arrow within the div */
+    transition: font-size 0.3s ease-out;
+}
+
 .category-text {
     font-size: 72px;
     font-optical-sizing: auto;
@@ -180,6 +202,59 @@ section {
     color: black;
     text-align: left;
 }
+
+/* Tablet: 768px */
+@media (min-width: 768px) and (max-width: 991px) {
+    .category-text {
+        font-size: 72px;
+    }
+    .category-text:hover{
+        transition: font-size 0.3s ease;
+        font-size: 68px;
+    }
+}
+
+/* Mobile: 320px */
+@media (max-width: 767px) {
+    .category-text {
+        font-size: 40px;
+    }
+    .category-text:hover{
+        transition: font-size 0.3s ease;
+        font-size: 36px;
+    }
+}
+
+/* Mobile: 320px */
+@media (max-width: 455px) {
+    .category-text {
+        font-size: 30px;
+    }
+    .category-text:hover{
+        transition: font-size 0.3s ease;
+        font-size: 26px;
+    }
+}
+
+.fas.fa-arrow-right {
+    opacity: 0; /* Hide the arrow initially */
+    position: absolute; /* Position relative to the parent */
+    right: 10px; /* Adjust right offset as needed */
+    top: 50%; /* Vertically center the arrow */
+    transform: translateY(-50%);
+    transition: opacity 0.3s ease; /* Add a fade-in/out transition */
+}
+
+.category-text:hover .fas.fa-arrow-right {
+    opacity: 1; /* Make the arrow visible on hover */
+}
+
+.clickable-div {
+    cursor: none;
+}
+
+
+
 
 .showcase-main-text {
     font-size: 72px;
@@ -195,6 +270,48 @@ section {
     font-weight: 100;
     font-style: normal;
     color: #cccccc;
+}
+
+.about-main-text {
+    font-size: 72px;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: black;
+    text-align: left;
+}
+
+/* Tablet: 768px */
+@media (min-width: 768px) and (max-width: 991px) {
+    .showcase-main-text, .about-main-text {
+        font-size: 72px;
+    }
+
+    .showcase-sub-text {
+        font-size: 28px;
+    }
+}
+
+/* Mobile: 320px */
+@media (max-width: 767px) {
+    .showcase-main-text, .about-main-text {
+        font-size: 40px;
+    }
+
+    .showcase-sub-text {
+        font-size: 20px;
+    }
+}
+
+/* Mobile: 320px */
+@media (max-width: 455px) {
+    .showcase-main-text, .about-main-text {
+        font-size: 30px;
+    }
+
+    .showcase-sub-text {
+        font-size: 14px;
+    }
 }
 
 .category-text i {
@@ -214,18 +331,41 @@ section {
 }
 
 #btn-contact {
-    padding: 5px 15px; /* Adjust padding for larger button */
+    padding: 10px 15px; /* Adjust padding for larger button */
     font-size: 14px; /* Adjust font size as needed */
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     color: white;
     cursor:none;
+    border-color:#cccccc;
 }
 
 #btn-contact:hover, #btn-contact:active {
     background-color: #cccccc;
     color:black;
+}
+
+#btn-menu { /* Remove default button border */
+    border-color: #cccccc;
+    background-color: transparent; /* Make background transparent */
+    padding: 12px 12px; /* Adjust padding for the desired size */
+    border-radius: 100%; /* Create the circle shape */
+    display: flex; /* To center the icon */
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    border-color: white;
+}
+
+#btn-menu:hover, #btn-menu:active {
+    background-color: #cccccc;
+    color: black;
+}
+
+#btn-menu i {
+  color: white;
+  font-size: 13px;/* Example color for the icon */
 }
 
 #myworks_button {
@@ -279,13 +419,27 @@ section {
     width: 25% !important; /* Change width to 25%  */
     flex: 1 0 23% !important; /* Update flex values (more on this below) */
     margin: 10px;
-    background-color: none;
+    background-color: #101010;
     overflow: hidden;
     border-radius: 10px;
 }
 
+    .item-4grid:after {
+        content: "";
+        display: block;
+        background-color: inherit;
+        opacity: 0.9;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: scale(2) translateY(-100%); /* No X-axis translation, no rotation */
+        transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
 .item-4grid:hover:after {
-    transform: scale(2) translateX(0%) translateY(0%) translateZ(0) rotate(-28deg);
+    transform: scale(2) translateY(0%);
 }
 
 .item-4grid:hover .item-image {
@@ -300,16 +454,30 @@ section {
 .item-5grid {
     position: relative;
     float: left; /* Keep this for now */
-    width: 20% !important; /* Change width to 25%  */
-    flex: 1 0 16% !important; /* Update flex values (more on this below) */
+    width: 20% !important;
+    flex: 1 0 18% !important;
     margin: 10px;
-    background-color: none;
+    background-color: #101010;
     overflow: hidden;
     border-radius: 10px;
 }
 
+.item-5grid:after {
+    content: "";
+    display: block;
+    background-color: inherit;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(2) translateY(-100%); /* No X-axis translation, no rotation */
+    transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 .item-5grid:hover:after {
-    transform: scale(2) translateX(0%) translateY(0%) translateZ(0) rotate(-28deg);
+    transform: scale(2) translateY(0%);
 }
 
 .item-5grid:hover .item-image {
@@ -327,13 +495,27 @@ section {
     width: 33.3333333333%;
     flex: 1 0 30%; /* Control relative width and prevent shrinking  */
     margin: 10px;
-    background-color: none; /* Semi-transparent background */
+    background-color: #101010; /* Semi-transparent background */
     overflow: hidden;
     border-radius: 10px;
 }
 
+.item:after {
+    content: "";
+    display: block;
+    background-color: inherit;
+    opacity: 0.9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scale(2) translateY(-100%); /* No X-axis translation, no rotation */
+    transition: transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
 .item:hover:after {
-    transform: scale(2) translateX(0%) translateY(0%) translateZ(0) rotate(-28deg);
+    transform: scale(2) translateY(0%);
 }
 
 .item:hover .item-image {
@@ -398,18 +580,18 @@ section {
 
 .item-text-title {
     font-weight: normal;
-    font-style: 16px;
+    font-size: 18px;
     padding: 0 15px;
-    margin: 5px 0 0 0;
+    margin: 5px 5px 0 5px;
 }
 
 /*THIS FOR THE SUBTEXT IN THE GALLERY*/
-/*.item-text-dek {
+.item-text-dek {
     text-transform: uppercase;
-    font-style: 14px;
+    font-size: 14px;
     opacity: 0.7;
     margin: 0;
-}*/
+}
 
 .item-link {
     position: absolute;
@@ -423,14 +605,32 @@ section {
     text-indent: -9999px;
 }
 
+#about-img {
+    height: 390px;
+    width: 550px;
+    border-radius: 10px;
+    /* Outline */
+    outline: 2px solid black;
+}
+
+#about-img img {
+    width: 100%; /* Make the image take up the full container width */
+    height: 100%; /* Make the image take up the full container height */
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border-radius: 10px;
+}
+
 /*CONTACT PAGE*/
 
 #right-side-col {
-    margin-top:70px;
+    margin-left: 20px;
+    margin-right: 20px; 
+    margin-bottom: 70px;
 }
 
 #left-side-col {
-    margin-top: 100px;
+    margin-top: 15px;
+    margin-bottom: 50px;
 }
 
 #contact-column{
@@ -443,6 +643,24 @@ section {
     font-weight: 700;
     font-style: normal;
     color: black;
+    text-align: left;
+}
+
+.about-text {
+    font-size: 24px;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: black;
+    text-align: left;
+}
+
+#about-name {
+    font-size: 24px;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: italic;
+    color: #f27c08;
     text-align: left;
 }
 
@@ -461,6 +679,16 @@ section {
     font-weight: 400;
     font-style: normal;
     color: black;
+}
+
+.about-info-text {
+    font-size: 20px;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    text-align: justify;
+    text-align-last: left; /* Or 'center', 'right' as needed */
 }
 
 #contact-module1 {
@@ -535,3 +763,15 @@ section {
 #contact_button:hover::after {
     transform: translateY(-5px);
 }
+
+.btn-outline-secondary{
+    border-color:black;
+    color:black;
+}
+
+.btn-outline-secondary:hover {
+    border-color: black;
+    color: black;
+    background-color: #f7931e;
+}
+
