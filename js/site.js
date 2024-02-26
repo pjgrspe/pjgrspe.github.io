@@ -22,7 +22,7 @@ function startAnimation() {
         const button = document.getElementById('myworks_button');
         setTimeout(() => riseUpButton(button), 1000); // Delay after h1 and h2
 
-    }, 3500);  // Example delay of 500 milliseconds
+    }, 3700);  // Example delay of 500 milliseconds
 }
 
 //SCROLL TO SECTION EFFECTS
