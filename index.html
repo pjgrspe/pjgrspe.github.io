@@ -1,835 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PJ Portfolio</title>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="css/cursor.css" asp-append-version="true" />
-    <link rel="stylesheet" href="css/loader.css" asp-append-version="true" />
-    <link rel="stylesheet" href="css/modal.css" asp-append-version="true" />
-    <link rel="stylesheet" href="MyPortfolio.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Stylesheets and Fonts -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chivo+Mono:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
-
- </head>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
 <body>
-    <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="menuModalLabel">Contact Form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="registration-form container d-flex justify-content-center" style="text-align:center; width:100%;">
-                        <form style="width:80%;">
-                            <div class="d-flex justify-content-center w-100">
-                                <div class="form-floating" style="margin-top: 10px; width: 100%;">
-                                    <input type="text" class="form-control rounded-5 w-100" id="floatingName" placeholder="Name" name="Name" required>
-                                    <label for="floatingName">Name</label>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center w-100">
-                                <div class="form-floating" style="margin-top: 10px; width: 100%;">
-                                    <input type="email" class="form-control rounded-5 w-100" id="floatingEmail" placeholder="Email" name="Email" required>
-                                    <label for="floatingEmail">Email</label>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center w-100">
-                                <div class="form-floating" style="margin-top: 10px; width: 100%;">
-                                    <input type="text" class="form-control rounded-5 w-100" id="floatingSubject" placeholder="Subject" name="Subject" required>
-                                    <label for="floatingSubject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center w-100">
-                                <div class="form-floating" style="margin-top: 10px; width: 100%;">
-                                    <textarea class="form-control rounded-5 w-100" rows="10" id="floatingNotes" placeholder="Notes" name="Message" style="height: 110px" maxlength="500" required></textarea>
-                                    <label for="floatingNotes">Message</label>
-                                </div>
-                            </div>
-                            <div class="modal-footer d-flex justify-content-center" style="margin-top:10px">
-                                <div class="d-flex justify-content-center col-5 mb-2 ">
-                                    <button class="btn btn-outline-secondary rounded-5" type="submit">SEND →</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Header Section -->
     <header>
-        <nav class="navbar  d-flex justify-content-between align-items-center">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img id="navbar_logo" class="ms-4" src="img/logo.png" />
-                </a>
-                <a class="btn btn-outline-secondary ms-auto rounded-pill" id="btn-contact" href="#contact_page">Get In Touch</a>
-            </div>
+        <nav>
+            <ul>
+                <li><a href="#about" class="active">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li> <!-- Added Contact menu item -->
+            </ul>
         </nav>
-    </header>
-		<div class="container">
-			<main role="main" class="pb-3 main-body">
-			<div id="loader-wrapper">
-		<div class="full-screen-loader"></div>
-		<div class="full-screen-loader"></div>
-			<div class="full-screen-loader main-loader">
-				<div class="loader-img-container">
-					<img class="loader-img" src="img/logo.png">
-				</div>
-			</div>
-		</div>
-		<div id="wrapper">
-		</div>
-            <!-- @*HERO SECTION*@ -->
-		<section class="vh-100" id="hero_page">
-			<div class="container h-100">
-				<div class="row h-100 align-items-center">
-					<div class="col-12 text-center">
-						<h1 class="text-lg-start text-center mb-4 chivo-mono-h1 rise-up-text">
-							Hi, my name is <span class="" id="my_name">Patrick Jason Gorospe</span>,<br />
-							a front-end developer and design enthusiast.<br />
-						</h1>
-						<h2 class="text-lg-start text-center mb-5 chivo-mono-h2 rise-up-text">
-							Let's build something amazing.
-						</h2>
-						<button id="myworks_button" class="btn btn-primary rounded-pill btn-lg mt-4 rise-up-button" onclick="scrollToNextSection()">
-							My Works <i class="ms-1 fas fa-arrow-down"></i>
-						</button>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- @*CATEGORY SECTION*@ -->
-		<section class="vh-100" id="categories_page">
-			<div class="container h-100">
-				<div class="row h-100 align-items-center">
-					<div class="col-12 text-center fade-in-element">
-						<h4 class="text-lg-start text-center mb-2 chivo-mono-h4">
-							I can help you with...
-						</h4>
-						<div class="fade-in-element mt-3">
-							<h3 class="text-lg-start text-center category-text clickable-div" data-target-section="#brandidentity_page">BRAND IDENTITY<i class="ms-auto fas fa-arrow-right d-lg-block d-none fade-in"></i></h3>
-						</div>
-						<div class="fade-in-element mt-3">
-							<h3 class="text-lg-start text-center category-text clickable-div" data-target-section="#productdesign_page">PRODUCT DESIGN<i class="ms-auto fas fa-arrow-right d-lg-block d-none fade-in"></i></h3>
-						</div>
-						<div class="fade-in-element mt-3">
-							<h3 class="text-lg-start text-center category-text clickable-div" data-target-section="#marketing_page">MARKETING<i class="ms-auto fas fa-arrow-right d-lg-block d-none fade-in"></i></h3>
-						</div>
-						<div class="fade-in-element mt-3">
-							<h3 class="text-lg-start text-center category-text clickable-div" data-target-section="#webdesign_page">WEB DESIGN<i class="ms-auto fas fa-arrow-right d-lg-block d-none fade-in"></i></h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- @*BRAND IDENTITY SECTION*@ -->
-		<section class="d-flex flex-column" id="brandidentity_page">
-			<div class="container flex-grow-1 d-flex flex-column">
-				<div class="row h-100 align-items-center flex-grow-1">
-					<!-- @*CONTENT*@ -->
-					<div class="col-12 text-center">
-						<div class="fade-in-element mt-5">
-							<h3 class="text-lg-start text-center showcase-main-text">BRAND IDENTITY</h3>
-							<h4 class="text-lg-start text-center mt-2 showcase-sub-text">
-								Visualizing the heart of your business.
-							</h4>
-						 </div>
-						<!-- @*GRID*@ -->
-						<div class="item-grid">
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/brand/icpep-04.jpg" alt="ICPEP Logo" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Brand Logo</p>
-										<h2 class="item-text-title">ICPEP.SE AUF Chapter Logo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/ICPEPAUFSC"></a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/brand/ceaatss-04.jpg" alt="CEAATSS Logo" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Brand Logo</p>
-										<h2 class="item-text-title">AUF - CEAATSS Logo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"></a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/brand/mmhotel1.jpg" alt="MM Hotel Logo" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Brand Logo</p>
-										<h2 class="item-text-title">The Marlim Mansion Hotel Logo</h2>
-									</div>
-								</div>
-								<a class="item-link" href=""></a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/brand/cardash1.jpg" alt="CarDash Logo" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Brand Logo</p>
-										<h2 class="item-text-title">CarDash App Logo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="="></a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/brand/perplex1.jpg" alt="PERPLEX Logo" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Brand Logo</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Logo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"></a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/brand/prospect1.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Brand Logo</p>
-										<h2 class="item-text-title">Prospect Apparel Logo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/prospectapparelph"></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- @*PRODUCT DESIGN SECTION*@ -->
-		<section class="d-flex flex-column" id="productdesign_page">
-			<div class="container flex-grow-1 d-flex flex-column">
-				<div class="row align-items-center flex-grow-1">
-					<!-- @*CONTENT*@ -->
-					<div class="col-12 text-center">
-						<div class="fade-in-element mt-5">
-							<h3 class="text-lg-end text-center showcase-main-text">PRODUCT DESIGN</h3>
-							<h4 class="text-lg-end text-center mt-2 showcase-sub-text">
-								Transforming the language of self-expression.
-							</h4>
-						</div>
-						<!-- @*GRID*@ -->
-						<div class="item-grid">
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/icpep.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Polo Design</p>
-										<h2 class="item-text-title">ICPEP.SE AUF Chapter Organization Polo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/ICPEPAUFSC"></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/ceaatss.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Polo Design</p>
-										<h2 class="item-text-title">AUF - CEAATSS Organization Polo</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/icpepshirt.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">Shirt for ICPEP.SE AUF Chapter</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/ICPEPAUFSC"></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/icpep-lanyard.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Lanyard Design</p>
-										<h2 class="item-text-title">ICPEP.SE AUF Chapter ID Lanyard</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/ICPEPAUFSC"></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/bsba-lanyard.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Lanyard Design</p>
-										<h2 class="item-text-title">BSBA Marketing Management NU Clark ID Lanyard</h2>
-									</div>
-								</div>
-								<a class="item-link" href=""></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (1).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "PERPLEXING PEGASUS" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (2).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "PTW" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"></a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (3).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "PTW" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"></a>
-							</div> 
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (4).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "BUTTERFLY EFFECT" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (5).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "BUTTERFLY EFFECT" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (6).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "PERPLEX SHORTS" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/product/perplex (7).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. "INEVITABLE" Release</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- @*MARKETING SECTION*@ -->
-		<section class="d-flex flex-column" id="marketing_page">
-			<div class="container flex-grow-1 d-flex flex-column">
-				<div class="row flex-grow-1 align-items-center">
-					<!-- @*CONTENT*@ -->
-					<div class="col-12 text-center">
-						<div class="fade-in-element mt-5">
-							<h3 class="text-lg-end text-center showcase-main-text">MARKETING</h3>
-							<h4 class="text-lg-end text-center mt-2 showcase-sub-text">
-								The art and science of reaching your audience.
-							</h4>
-						</div>
-						<!-- @*GRID*@ -->
-						<div class="item-grid mb-5">
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX_LB (1).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">"INEVITABLE" Lookbook</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX_LB (2).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">"BUTTERFLY EFFECT" Lookbook</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX_LB (3).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">"PERPLEXING PEGASUS" Lookbook</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX_LB (4).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">"PTW" Lookbook</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX_LB (5).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">"PERPLEXING" Lookbook</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX (1).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Marketing Poster</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX (2).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Marketing Poster</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX (4).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Marketing Poster</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX (5).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Marketing Poster</h2>
-									</div>
-								</div>>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX (6).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Marketing Poster</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PERPLEX (7).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">PERPLEX Clothing Co. Marketing Poster</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/perplexclothingco"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/CEAATSS (1).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Publication Material</p>
-										<h2 class="item-text-title">AUF - CEAATSS Publication Material</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/CEAATSS (2).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Shirt Design</p>
-										<h2 class="item-text-title">AUF - CEAATSS Publication Material</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/CEAATSS (3).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Publication Material</p>
-										<h2 class="item-text-title">AUF - CEAATSS Publication Material</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/CEAATSS (4).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Publication Material</p>
-										<h2 class="item-text-title">AUF - CEAATSS Publication Material</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/CEAATSS (5).jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Publication Material</p>
-										<h2 class="item-text-title">AUF - CEAATSS Publication Material</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/AUF.CEAATSS"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/ICPEP.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Publication Material</p>
-										<h2 class="item-text-title">ICPEP.SE AUF Chapter Publication Material</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/ICPEPAUFSC"> </a>
-							</div>
-							<div class="item-4grid  fade-in-element">
-								<div class="item-image">
-									<img src="img/marketing/PROSPECT.jpg" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Marketing</p>
-										<h2 class="item-text-title">Prospect Apparel Marketing Poster</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://www.facebook.com/prospectapparelph"> </a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- @*WEB DESIGN SECTION*@ -->
-		<section class="d-flex flex-column" id="webdesign_page">
-			<div class="container flex-grow-1 d-flex flex-column">
-				<div class="row flex-grow-1 align-items-center">
-					<!-- @*CONTENT*@ -->
-					<div class="col-12 text-center">
-						<div class="fade-in-element mt-5">
-							<h3 class="text-lg-start text-center showcase-main-text">WEB DESIGN</h3>
-							<h4 class="text-lg-start text-center mt-2 showcase-sub-text">
-								Building digital destinations that engage.
-							</h4>
-						</div>
-						<!-- @*GRID*@ -->
-						<div class="item-grid">
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/web/ice (1).png" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Web Design</p>
-										<h2 class="item-text-title">ICE Password Repository Hero Page</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://github.com/pjgrspe/NetRunners-Password-Repository"> </a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/web/ice (2).png" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Web Design</p>
-										<h2 class="item-text-title">ICE Password Repository Home Page UI</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://github.com/pjgrspe/NetRunners-Password-Repository"></a>
-							</div>
-
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/web/ice (3).png" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Web Design</p>
-										<h2 class="item-text-title">ICE Password Repository ICEPASS Generator UI</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://github.com/pjgrspe/NetRunners-Password-Repository"></a>
-							</div>
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/web/ice (4).png" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Web Design</p>
-										<h2 class="item-text-title">ICE Password Repository Settings UI</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://github.com/pjgrspe/NetRunners-Password-Repository"></a>
-							</div>
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/web/ice (5).png" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Web Design</p>
-										<h2 class="item-text-title">ICE Password Repository About Page</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://github.com/pjgrspe/NetRunners-Password-Repository"></a>
-							</div>
-							<div class="item fade-in-element">
-								<div class="item-image">
-									<img src="img/web/ice (6).png" alt="" />
-								</div>
-								<div class="item-text">
-									<div class="item-text-wrapper">
-										<p class="item-text-dek">Web Design</p>
-										<h2 class="item-text-title">ICE Password Repository Trashbin UI</h2>
-									</div>
-								</div>
-								<a class="item-link" href="https://github.com/pjgrspe/NetRunners-Password-Repository"></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-		<!-- @*ABOUT ME SECTION*@ -->
-		<section class="d-flex flex-column" id="about_page">
-			<div class="container flex-grow-1 d-flex flex-column">
-				<div class="row flex-grow-1 align-items-center" id="contact-column">
-					<div class="fade-in-element mt-5 mb-4">
-						<h3 class="text-center about-main-text">ABOUT ME</h3>
-					</div>
-					<!-- @*LEFT SIDE*@ -->
-					<div class="col-xl-6">
-						<div class="contact-form">
-							<div class="row">
-								<div class="col d-flex flex-column align-items-left justify-content-center fade-in-element" id="left-side-col">
-									<div class="flex-item item-1 d-flex align-items-center justify-content-center" >
-										<div class="d-flex flex-column col-12 text-center" id="about-img">
-											<img src="img/me.JPG" alt="" class="img-fluid"/>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- @*RIGHT SIDE*@ -->
-					<div class="col-xl-6 text-center text-xl-start">
-						<div class="fade-in-element" id="right-side-col">
-							<h3 class="text-center text-xl-start about-text">
-								My name is <span class="" id="about-name">Patrick Jason Gorospe</span>,
-							</h3>
-							<h4 class="mt-3 about-info-text">
-								I'm a passionate frontend developer and designer currently balancing my college studies with my love for crafting beautiful and engaging user experiences.  I thrive on translating design vision into clean, functional code, using my expertise in HTML, CSS, and JavaScript to bring websites to life. <br /><br />Whether it's building responsive layouts, fine-tuning interactions, or ensuring seamless cross-browser compatibility, I'm dedicated to delivering exceptional results while pushing my boundaries as a student and developer.
-							</h4>
-						</div>
-					</div>
-					
-				</div>
-			</div>
-		</section>
-
-		<!-- @*CONTACT SECTION*@ -->
-		<section class="d-flex flex-column" id="contact_page">
-			<div class="container flex-grow-1 d-flex flex-column">
-				<div class="row flex-grow-1 align-items-center" id="contact-column">
-					<!-- @*LEFT SIDE*@ -->
-					<div class="col-lg-6 text-center text-lg-start">
-						<div class="fade-in-element" id="right-side-col">
-							<h3 class="text-center text-lg-start contact-text">
-							If you feel like I might be a great fit,
-							I would love to hear from you!
-							</h3>
-							<h5 class="contact-sub-text">
-							Get In Touch
-							</h5>
-							<h4 class="mt-2 contact-info-text">
-								(0968) 888 7711 <br />
-								gorospe.patrickjasonb@gmail.com <br />
-								Perplex Studios, Xevera Subd., <br />
-								Mabalacat City, Pampanga 2010
-							</h4>
-						</div>
-					</div>
-					<!-- @*RIGHT SIDE*@ -->
-					<div class="col-lg-6">
-						<div class="contact-form">
-							<div class="row">
-								<div class="col d-flex flex-column align-items-center justify-content-center fade-in-element" id="left-side-col">
-									<div class="flex-item item-1 d-flex align-items-center justify-content-between" id="contact-module1">
-										<h4 class="ms-3 d-flex align-items-start" id="contact-module1-text">
-											Follow me
-										</h4>
-										<div class="me-3 d-flex">
-											<a href="https://github.com/pjgrspe" class="me-3">
-												<img src="img/social-logos/github.svg" width="25" height="25" alt="Github Logo">
-											</a>
-											<a href="https://www.facebook.com/pjgrspe/" class="me-3">
-												<img src="img/social-logos/fb.svg" width="23" height="23" alt="FB Logo">
-											</a>
-											<a href="https://www.instagram.com/pjgrspe/">
-												<img src="img/social-logos/ig.svg" width="25" height="25" alt="IG Logo">
-											</a>
-										</div>
-									</div>
-									<div class="flex-item item-1 d-flex align-items-center justify-content-center" id="contact-module2">
-										<div class="d-flex flex-column col-12 text-center"> <h4 id="contact-module2-text">Ready to talk?</h4>
-											<p class="subtext">Let's discuss your project ideas!</p> 
-											<button id="contact_button" class="btn btn-primary rounded-pill btn-lg mt-3 d-flex justify-content-center" href="#" data-bs-toggle="modal" data-bs-target="#menuModal">
-												Start a project
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-        </main>
-    </div>
-
-    <footer class="footer text-muted">
-        <div class="container ms-4 footer-text">
-            &copy; 2024 Perplex Studios. All Rights Reserved.
+        <div class="hero-text">
+            <h1>Jason's Portfolio</h1>
+            <p>Web Developer | Creative Problem Solver | Tech Enthusiast</p>
         </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <img src="/img/me.jpg" alt="My Pic">
+        <p>Hello! I’m Jason, a web developer passionate about creating responsive and dynamic websites. I focus on blending clean design with efficient code to deliver high-performing solutions. Constantly learning new technologies, I enjoy problem-solving and pushing the boundaries of what's possible in web development.</p>
+    </section>    
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="category-box">
+            <strong>Programming Languages:</strong>
+            <ul>
+                <li><i class="fab fa-html5"></i> HTML5</li>
+                <li><i class="fab fa-css3-alt"></i> CSS3</li>
+                <li><i class="fab fa-js"></i> JavaScript</li>
+                <li><i class="fas fa-code"></i> ASP.NET</li>
+                <li><i class="fab fa-android"></i> Android Programming (Kotlin)</li>
+            </ul>
+        </div>
+        <div class="category-box">
+            <strong>Frameworks and Libraries:</strong>
+            <ul>
+                <li><i class="fab fa-react"></i> React.js</li>
+                <li><i class="fas fa-code-branch"></i> Bootstrap / Tailwind CSS</li>
+            </ul>
+        </div>
+        <div class="category-box">
+            <strong>Databases:</strong>
+            <ul>
+                <li><i class="fas fa-database"></i> MySQL</li>
+                <li><i class="fas fa-database"></i> MongoDB</li>
+            </ul>
+        </div>
+        <div class="category-box">
+            <strong>Version Control:</strong>
+            <ul>
+                <li><i class="fab fa-git-alt"></i> Git / GitHub</li>
+            </ul>
+        </div>
+        <div class="category-box">
+            <strong>UI/UX Design:</strong>
+            <ul>
+                <li><i class="fab fa-figma"></i> Figma / Adobe XD</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects-section">
+        <h2>Personal Projects</h2>
+
+        <!-- Search and Filter Controls -->
+        <div id="search-filter-controls">
+            <div class="search-wrapper">
+                <input type="text" id="search-input" placeholder="Search projects...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <select id="filter-select">
+                <option value="all">All</option>
+                <option value="web">Web Development</option>
+                <option value="design">Design</option>
+            </select>
+        </div>
+
+        <div id="projects">
+            <article data-category="web">
+                <h3>ICE Password Repository</h3>
+                <img class="project-img" src="img/project1.png" alt="Project 1">
+                <p>A secure tool to store and manage your passwords.</p>
+                <a href="https://github.com/pjgrspe/NetRunners-Password-Repository">View Project</a>
+            </article>
+            <article data-category="web">
+                <h3>RentaRide System</h3>
+                <img class="project-img" src="img/project2.png" alt="Project 2">
+                <p>A website for easy vehicle rentals with tracking and payments.</p>
+                <a href="https://github.com/pjgrspe/RentaRide">View Project</a>
+            </article>
+            <article data-category="design">
+                <h3>PERPLEX</h3>
+                <img class="project-img" src="img/project3.png" alt="Project 3">
+                <p>PERPLEX is a streetwear brand with styles that stand out in every crowd.</p>
+                <a href="https://web.facebook.com/perplex.ph">View Project</a>
+            </article>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>CONTACT ME</h2>
+        <form id="contact-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+            </div>
+            <button id="submit-btn" type="submit">Send</button>
+        </form>
+        <div id="message-sent" style="display: none;">
+            <p>Message sent successfully!</p>
+        </div>
+    </section>
+
+    <!-- Toast Container for Notifications -->
+    <div id="toast-container"></div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 PERPLEX. All rights reserved.</p>
     </footer>
-    <script src="lib/jquery/dist/jquery.min.js"></script>
-    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/site.js" asp-append-version="true"></script>
-    <script src="js/loader.js"></script>
-    <script src="js/cursor.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="scripts.js"></script>
 </body>
 </html>
