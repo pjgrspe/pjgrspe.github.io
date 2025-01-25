@@ -451,8 +451,13 @@ footer {
     }
 
     #about img {
-        width: 150px;
-        height: 150px;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        object-fit: cover;  /* This ensures the image covers the entire circle without stretching */
+        object-position: center;  /* Centers the image within the circle */
     }
 
     #projects img {
