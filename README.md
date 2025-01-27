@@ -1,2 +1,2 @@
 # pjgrspe.github.io
-My Portfolio
+Patrick Jason B. Gorospe's Portfolio
