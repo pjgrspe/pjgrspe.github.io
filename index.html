@@ -18,139 +18,288 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <nav>
+    <!-- New Header -->
+    <header class="main-header">
+        <div class="logo">
+            <a href="#splash">PJG</a>
+        </div>
+        <nav class="main-nav">
             <ul>
-                <li><a href="#about" class="active">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#about">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li> <!-- Added Contact menu item -->
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="cv/GOROSPE_CV.pdf" download="GOROSPE_CV.pdf" class="btn resume-btn">
+                        <i class="fas fa-file-download"></i> Resume
+                    </a>
+                </li>
             </ul>
         </nav>
-        <div class="hero-text">
-            <h1>Jason's Portfolio</h1>
-            <p>Web Developer | Creative Problem Solver | Tech Enthusiast</p>
+        <div class="hamburger-menu">
+            <i class="fas fa-bars"></i>
         </div>
     </header>
 
-    <!-- About Me Section -->
+    <!-- Splash Screen -->
+    <div id="splash">
+        <div class="splash-inner">
+            <div class="hero-text">
+                <h1 class="animated-title">Hi, I'm <span>Patrick Jason Gorospe</span></h1>
+                <p class="animated-subtitle">I'm a computer engineering student passionate about full-stack development and embedded systems, crafting innovative solutions that bridge software and hardware technologies.</p>
+            </div>
+            
+            <nav class="splash-navigation">
+                <ul>
+                    <li><a href="#about" class="btn">More About Me ↓</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- About Section -->
     <section id="about">
         <h2>About Me</h2>
-        <img src="/img/me2.jpg" alt="My Pic">
-        <p>Hello! I’m Jason, a web developer passionate about creating responsive and dynamic websites. I focus on blending clean design with efficient code to deliver high-performing solutions. Constantly learning new technologies, I enjoy problem-solving and pushing the boundaries of what's possible in web development.</p>
-    </section>    
-
-    <!-- Skills Section -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="category-box">
-            <strong>Programming Languages:</strong>
-            <ul>
-                <li><i class="fab fa-html5"></i> HTML5</li>
-                <li><i class="fab fa-css3-alt"></i> CSS3</li>
-                <li><i class="fab fa-js"></i> JavaScript</li>
-                <li><i class="fas fa-code"></i> ASP.NET</li>
-                <li><i class="fab fa-android"></i> Android Programming (Kotlin)</li>
-            </ul>
-        </div>
-        <div class="category-box">
-            <strong>Frameworks and Libraries:</strong>
-            <ul>
-                <li><i class="fab fa-react"></i> React.js</li>
-                <li><i class="fas fa-code-branch"></i> Bootstrap / Tailwind CSS</li>
-            </ul>
-        </div>
-        <div class="category-box">
-            <strong>Databases:</strong>
-            <ul>
-                <li><i class="fas fa-database"></i> MySQL</li>
-                <li><i class="fas fa-database"></i> MongoDB</li>
-            </ul>
-        </div>
-        <div class="category-box">
-            <strong>Version Control:</strong>
-            <ul>
-                <li><i class="fab fa-git-alt"></i> Git / GitHub</li>
-            </ul>
-        </div>
-        <div class="category-box">
-            <strong>UI/UX Design:</strong>
-            <ul>
-                <li><i class="fab fa-figma"></i> Figma / Adobe XD</li>
-            </ul>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>A driven 4th-year Computer Engineering student passionate about creating innovative solutions in embedded systems, web, and mobile development. Experienced in full-stack development with focus on user-centric design and robust system architecture. Currently seeking internship opportunities to apply technical expertise in real-world scenarios.</p>
+                
+                <!-- Skills Section with Categories -->
+                <div class="skills-categories">
+                    <div class="category">
+                        <h4>Programming Languages</h4>
+                        <div class="skills-pills">
+                            <span class="pill">Python</span>
+                            <span class="pill">JavaScript</span>
+                            <span class="pill">C#</span>
+                            <span class="pill">C</span>
+                            <span class="pill">PHP</span>
+                            <span class="pill">SQL</span>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <h4>Web and Mobile Development</h4>
+                        <div class="skills-pills">
+                            <span class="pill">UI/UX Design</span>
+                            <span class="pill">HTML5/CSS3</span>
+                            <span class="pill">React.js</span>
+                            <span class="pill">ASP.Net Core</span>
+                            <span class="pill">Android Development</span>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <h4>Embedded Systems</h4>
+                        <div class="skills-pills">
+                            <span class="pill">IoT</span>
+                            <span class="pill">Microcontrollers</span>
+                            <span class="pill">Sensors</span>
+                            <span class="pill">Circuit Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="img/me2.jpg" alt="Patrick Jason Gorospe">
+            </div>
         </div>
     </section>
     
     <!-- Projects Section -->
-    <section id="projects-section">
-        <h2>Personal Projects</h2>
+    <section id="projects">
+        <h2>Project Experience</h2>
+        <div class="projects-grid">
+            <!-- ACART Project -->
+            <article 
+                data-category="web"
+                data-images='["img/indevelopment-01.png"]'
+                data-technologies='["Android Studio", "Firebase", "Mapbox API", "Jetpack Compose"]'
+                data-github="https://github.com/pjgrspe/ProjectACART"
+                >
+                <div class="project-summary">
+                    <h3>ACART - Jeepney App System</h3>
+                    <img class="project-img" src="img/indevelopment-01.png" alt="ACART Jeepney App">
+                    <div class="project-meta">DEC 2024 - Present</div>
+                    <p>Android application for jeepney route optimization using Firebase real-time data.</p>
+                </div>
+            </article>
+            
+            <!-- LabWatch Project -->
+            <article 
+                data-category="iot"
+                data-images='["img/indevelopment-01.png"]'
+                data-technologies='["IoT", "ESP32", "Android App", "Firebase"]'
+                data-github="https://github.com/pjgrspe/LabWatch"
+                >
+                <div class="project-summary">
+                    <h3>LabWatch Safety System</h3>
+                    <img class="project-img" src="img/indevelopment-01.png" alt="LabWatch System">
+                    <div class="project-meta">DEC 2024 - Present</div>
+                    <p>IoT laboratory monitoring system with sensor integration and Android alerts.</p>
+                </div>
+            </article>
+            <!-- RentaRide Project -->
+            <article 
+                data-category="web"
+                data-images='["img/RentaRide/1.png", "img/RentaRide/2.png","img/RentaRide/3.png","img/RentaRide/4.png","img/RentaRide/5.png"]'
+                data-technologies='["ASP.Net Core", "Bootstrap", "MSSQL", "Mapbox API", "Arduino"]'
+                data-github="https://github.com/pjgrspe/RentaRide"
+                >
+                <div class="project-summary">
+                    <h3>RentaRide Platform</h3>
+                    <img class="project-img" src="img/RentaRide/2.png" alt="RentaRide System">
+                    <div class="project-meta">JUN 2024</div>
+                    <p>ASP.NET Core vehicle rental system with real-time tracking.</p>
+                </div>
+            </article>
 
-        <!-- Search and Filter Controls -->
-        <div id="search-filter-controls">
-            <div class="search-wrapper">
-                <input type="text" id="search-input" placeholder="Search projects...">
-                <i class="fas fa-search search-icon"></i>
-            </div>
-            <select id="filter-select">
-                <option value="all">All</option>
-                <option value="web">Web Development</option>
-                <option value="design">Design</option>
-            </select>
-        </div>
+            <!-- Password Manager Project -->
+            <article 
+                data-category="web"
+                data-images='["img/ICE/ice (1).png", "img/ICE/ice (2).png", "img/ICE/ice (3).png", "img/ICE/ice (4).png", "img/ICE/ice (5).png", "img/ICE/ice (6).png"]'
+                data-technologies='["ASP.Net Core", "Bootstrap", "MSSQL"]'
+                data-github="https://github.com/pjgrspe/NetRunners-Password-Repository"
+                >
+                <div class="project-summary">
+                    <h3>ICE Password Repository</h3>
+                    <img class="project-img" src="img/ICE/ice (1).png" alt="Password Manager">
+                    <div class="project-meta">JUN 2023</div>
+                    <p>Secure desktop password manager using ASP.NET Core and MySQL.</p>
+                </div>
+            </article>
 
-        <div id="projects">
-            <article data-category="web">
-                <h3>ICE Password Repository</h3>
-                <img class="project-img" src="img/project1.png" alt="Project 1">
-                <p>A secure tool to store and manage your passwords.</p>
-                <a href="https://github.com/pjgrspe/NetRunners-Password-Repository">View Project</a>
+            <!-- CashFlow Project -->
+            <article 
+                data-category="mobile"
+                data-images='["img/CashFlow/1.png", "img/CashFlow/2.png", "img/CashFlow/1.jpg", "img/CashFlow/2.jpg"]'
+                data-technologies='["Android", "Jetpack Compose", "Firebase"]'
+                data-github="https://github.com/pjgrspe/CashFlowApp"
+                >
+                <div class="project-summary">
+                    <h3>CashFlow Finance Tracker</h3>
+                    <img class="project-img" src="img/CashFlow/3.png" alt="CashFlow App">
+                    <div class="project-meta">OCT 2024</div>
+                    <p>Jetpack Compose app with expense tracking and Firebase integration.</p>
+                </div>
             </article>
-            <article data-category="web">
-                <h3>RentaRide System</h3>
-                <img class="project-img" src="img/project2.png" alt="Project 2">
-                <p>A website for easy vehicle rentals with tracking and payments.</p>
-                <a href="https://github.com/pjgrspe/RentaRide">View Project</a>
+
+            <!-- Weather App Project -->
+            <article 
+                data-category="mobile"
+                data-images='["img/WeatherApp/1.png", "img/WeatherApp/2.png"]'
+                data-technologies='["Android", "Jetpack Compose", "OpenWeather API"]'
+                data-github="https://github.com/pjgrspe/WeatherApp"
+                >
+                <div class="project-summary">
+                    <h3>Weather App</h3>
+                    <img class="project-img" src="img/WeatherApp/3.png" alt="Weather App">
+                    <div class="project-meta">OCT 2023</div>
+                    <p>A minimalistic weather app made with Jetpack Compose and OpenWeather API.</p>
+                </div>
             </article>
-            <article data-category="design">
-                <h3>PERPLEX</h3>
-                <img class="project-img" src="img/project3.png" alt="Project 3">
-                <p>PERPLEX is a streetwear brand with styles that stand out in every crowd.</p>
-                <a href="https://web.facebook.com/perplex.ph">View Project</a>
-            </article>
+
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2>CONTACT ME</h2>
-        <form id="contact-form">
-            <div>
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
+    <section id="contacts" class="section-block">
+        <div class="section-container">
+            <h1 class="section-heading">Let's Build Something Remarkable Together</h1>
+
+            <div class="contact-grid">
+                <!-- Contact Information Card -->
+                <div class="contact-card elevated-card">
+                    <div class="card-content">
+                        <h3 class="card-heading">
+                            <i class="fas fa-paper-plane"></i>
+                            Direct Connection
+                        </h3>
+                        
+                        <div class="contact-details">
+                            <a href="tel:09688887711" class="detail-item hover-transform">
+                                <i class="fas fa-mobile-alt"></i>
+                                <div>
+                                    <span class="detail-label">Mobile</span>
+                                    <span class="detail-value">(0968) 888 7711</span>
+                                </div>
+                            </a>
+
+                            <a href="mailto:gorospe.patrickjasonb@gmail.com" class="detail-item hover-transform">
+                                <i class="fas fa-envelope-open"></i>
+                                <div>
+                                    <span class="detail-label">Email</span>
+                                    <span class="detail-value">gorospe.patrickjasonb@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <div class="detail-item hover-transform">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <div>
+                                    <span class="detail-label">Location</span>
+                                    <span class="detail-value">Mabalacat City, Pampanga</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-connect">
+                            <h4 class="social-heading">Socials</h4>
+                            <div class="social-grid">
+                                <a href="https://linkedin.com/in/pjgrspe" class="social-item elevated-card hover-transform" target="_blank">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/pjgrspe" class="social-item elevated-card hover-transform" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://facebook.com/pjgrspe" class="social-item elevated-card hover-transform" target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                    <span>Facebook</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form elevated-card">
+                    <h3 class="card-heading">
+                        <i class="fas fa-envelope"></i>
+                        Contact Form
+                    </h3>
+                    <form id="contact-form">
+                        <!-- Name and Email in one row -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <!-- Subject and Message fields -->
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
-            </div>
-            <div>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5"></textarea>
-            </div>
-            <button id="submit-btn" type="submit">Send</button>
-        </form>
-        <div id="message-sent" style="display: none;">
-            <p>Message sent successfully!</p>
         </div>
     </section>
 
     <!-- Toast Container for Notifications -->
     <div id="toast-container"></div>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 PERPLEX. All rights reserved.</p>
-    </footer>
 
     <!-- Custom JavaScript -->
     <script src="scripts.js"></script>
