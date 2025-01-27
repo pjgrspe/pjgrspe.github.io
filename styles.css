@@ -1155,10 +1155,9 @@ footer {
     }
 }
 
-/* Add to existing CSS */
-.skills-grid, .projects-grid {
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusts based on screen size */
     gap: 20px;
 }
 
