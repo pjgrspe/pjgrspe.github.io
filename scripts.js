@@ -145,15 +145,15 @@ $(document).ready(function() {
     //     });
     // }
 
-    // // Toggle navigation menu on hamburger menu click
-    // $('.hamburger-menu').on('click', function() {
-    //     $('.main-nav').toggleClass('active');
-    // });
+    // Toggle navigation menu on hamburger menu click
+    $('.hamburger-menu').on('click', function() {
+        $('.main-nav').toggleClass('active');
+    });
 
-    // // Close the menu when a link is clicked
-    // $('.main-nav ul li a').on('click', function() {
-    //     $('.main-nav').removeClass('active');
-    // });
+    // Close the menu when a link is clicked
+    $('.main-nav ul li a').on('click', function() {
+        $('.main-nav').removeClass('active');
+    });
 });
 
 // Add this to your scripts.js file
