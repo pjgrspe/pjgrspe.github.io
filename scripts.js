@@ -120,40 +120,40 @@ $(document).ready(function() {
         }
     });
       
-    // Search and Filter Functionality
-    $('#search-input').on('input', function() {
-        const searchTerm = $(this).val().toLowerCase();
-        filterProjects(searchTerm, $('#filter-select').val());
-    });
+    // // Search and Filter Functionality
+    // $('#search-input').on('input', function() {
+    //     const searchTerm = $(this).val().toLowerCase();
+    //     filterProjects(searchTerm, $('#filter-select').val());
+    // });
 
-    $('#filter-select').on('change', function() {
-        const filterTerm = $(this).val();
-        filterProjects($('#search-input').val().toLowerCase(), filterTerm);
-    });
+    // $('#filter-select').on('change', function() {
+    //     const filterTerm = $(this).val();
+    //     filterProjects($('#search-input').val().toLowerCase(), filterTerm);
+    // });
 
-    function filterProjects(searchTerm, filterTerm) {
-        $('#projects article').each(function() {
-            const projectTitle = $(this).find('h3').text().toLowerCase();
-            const projectCategory = $(this).data('category').toLowerCase();
+    // function filterProjects(searchTerm, filterTerm) {
+    //     $('#projects article').each(function() {
+    //         const projectTitle = $(this).find('h3').text().toLowerCase();
+    //         const projectCategory = $(this).data('category').toLowerCase();
 
-            if ((projectTitle.includes(searchTerm) || searchTerm === '') &&
-                (projectCategory === filterTerm || filterTerm === 'all')) {
-                $(this).show();
-            } else {
-                $(this).hide();
-            }
-        });
-    }
+    //         if ((projectTitle.includes(searchTerm) || searchTerm === '') &&
+    //             (projectCategory === filterTerm || filterTerm === 'all')) {
+    //             $(this).show();
+    //         } else {
+    //             $(this).hide();
+    //         }
+    //     });
+    // }
 
-    // Toggle navigation menu on hamburger menu click
-    $('.hamburger-menu').on('click', function() {
-        $('.main-nav').toggleClass('active');
-    });
+    // // Toggle navigation menu on hamburger menu click
+    // $('.hamburger-menu').on('click', function() {
+    //     $('.main-nav').toggleClass('active');
+    // });
 
-    // Close the menu when a link is clicked
-    $('.main-nav ul li a').on('click', function() {
-        $('.main-nav').removeClass('active');
-    });
+    // // Close the menu when a link is clicked
+    // $('.main-nav ul li a').on('click', function() {
+    //     $('.main-nav').removeClass('active');
+    // });
 });
 
 // Add this to your scripts.js file
