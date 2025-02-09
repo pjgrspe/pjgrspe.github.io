@@ -20,6 +20,90 @@ body {
     color: var(--text-color);
 }
 
+/* Responsive Typography
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+} */
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    header {
+        padding: 15px 0;
+    }
+
+    section {
+        width: 95%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #projects {
+        grid-template-columns: 1fr;
+    }
+
+    #contact {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    #about img {
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        object-fit: cover;  /* This ensures the image covers the entire circle without stretching */
+        object-position: center;  /* Centers the image within the circle */
+    }
+
+    #projects img {
+        width: 100%;
+        height: auto;
+    }
+
+    #contact {
+        width: 90%;
+    }
+}
+
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Instrument Serif', serif;
     color: var(--text-color);
@@ -32,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
     background: transparent;
-    border-radius: 50px; /* Extremely rounded edges */
+    border-radius: 50px;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
@@ -64,16 +148,6 @@ h1, h2, h3, h4, h5, h6 {
     left: 100%;
 }
 
-
-
-/* Section Styles */
-.section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-    text-transform: uppercase;
-}
-
 /* Grid Layouts */
 .grid {
     display: grid;
@@ -96,14 +170,6 @@ h1, h2, h3, h4, h5, h6 {
     border-color: var(--primary-color);
 }
 
-/* Responsive Typography */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2rem; }
-}
 
 /* Header Styles */
 .main-header {
@@ -168,7 +234,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .main-nav {
         position: absolute;
-        top: 60px; /* Adjust based on header height */
+        top: 45px;
         left: 0;
         width: 100%;
         background-color: var(--background-dark);
@@ -182,6 +248,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .main-nav.active {
         max-height: 300px; /* Adjust based on content height */
+        
     }
 
     .main-nav ul {
@@ -209,23 +276,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .header-hidden {
     transform: translateY(-100%); /* Move the header out of view */
-}
-
-.main-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background-color: rgba(18, 18, 18, 0.7);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px); /* Creates the blur behind the element */
-    -webkit-backdrop-filter: blur(12px); /* For Safari support */
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo a {
@@ -269,14 +319,9 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: 5px;
 }
 
-/* Adjust splash screen and sections to account for fixed header */
-#splash {
-    padding-top: 80px; /* Adjust based on header height */
-}
-
 section {
     margin-top: 80px; /* Prevent content from being hidden behind header */
-}   
+}
 
 /* Splash Screen Styles */
 #splash {
@@ -289,6 +334,7 @@ section {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    padding-top: 80px;
 }
 
 .splash-inner {
@@ -407,20 +453,28 @@ section {
     .animated-title {
         font-size: 2.5rem;
     }
-    
+
     .animated-subtitle {
         font-size: 1.2rem;
     }
-    
+
     .splash-navigation ul {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .nav-button {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
     }
+}
+
+/* Section Styles */
+.section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-transform: uppercase;
 }
 
 /* About Me Section */
@@ -643,14 +697,8 @@ section {
 }
 
 /* CONTACT SECTION */
-#contact {
-    margin: 80px auto;
-    padding: 40px 20px;
-    width: 90%;
-    background-color: rgba(18, 18, 18, 0.7);
-    border: 1px solid #333;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+#contacts {
+    margin: 40px auto;
 }
 
 .contact-heading {
@@ -706,9 +754,10 @@ section {
     border: 1px solid rgba(187, 134, 252, 0.1);
     border-radius: 16px;
     padding: 32px;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
                 box-shadow 0.3s ease;
 }
+
 
 .elevated-card:hover {
     transform: translateY(-5px);
@@ -958,6 +1007,24 @@ section {
     .cta-heading {
         font-size: 1.8rem;
     }
+
+    .contact-card {
+        padding: 20px;
+        margin: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-card p {
+        font-size: 1rem;
+    }
+
+    .contact-card .card-content {
+        padding: 10px;
+    }
 }
 
 /* FOOTER STYLES */
@@ -1016,149 +1083,18 @@ footer {
     vertical-align: left;
 }
 
-/* Search and Filter Controls */
-#search-filter-controls {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    gap: 10px;
-}
 
-.search-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-#search-input {
-    padding: 10px 40px 10px 20px; /* Add padding for the icon */
-    border: 1px solid #333;
-    border-radius: 4px;
-    background-color: #2c2c2c;
-    color: #e0e0e0;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
-}
-
-#search-input:focus {
-    border-color: #bb86fc;
-    outline: none;
-}
-
-.search-icon {
-    position: absolute;
-    right: 10px;
-    color: #888;
-    pointer-events: none;
-}
-
-#filter-select {
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 4px;
-    background-color: #2c2c2c;
-    color: #e0e0e0;
-    font-size: 16px;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="#e0e0e0" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 10px;
-    transition: border-color 0.3s ease;
-}
-
-#filter-select:focus {
-    border-color: #bb86fc;
-    outline: none;
-}
-
-#search-input::placeholder {
-    color: #888;
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    header {
-        padding: 15px 0;
-    }
-
-    section {
-        width: 95%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-    }
-
-    #projects {
-        grid-template-columns: 1fr;
-    }
-
-    #contact {
-        width: 95%;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    header {
-        padding: 10px 0;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    #about img {
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        object-fit: cover;  /* This ensures the image covers the entire circle without stretching */
-        object-position: center;  /* Centers the image within the circle */
-    }
-
-    #projects img {
-        width: 100%;
-        height: auto;
-    }
-
-    #contact {
-        width: 90%;
-    }
-}
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusts based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Adjusts based on screen size */
     gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .education-item {
@@ -1403,5 +1339,126 @@ footer {
         width: 35px;
         height: 35px;
         font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 5px 0;
+    }
+
+    nav ul {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}
+
+/* CONTACT SECTION MOBILE ADJUSTMENTS */
+@media (max-width: 480px) {
+    /* Contact Grid Layout */
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        max-width: 95%;
+    }
+
+    /* Contact Card Adjustments */
+    .elevated-card {
+        padding: 20px;
+    }
+
+    .card-heading {
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+    }
+
+    /* Contact Details */
+    .detail-item {
+        padding: 12px;
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+    }
+
+    .detail-value {
+        font-size: 1rem;
+        word-break: break-word;
+    }
+
+    /* Social Grid */
+    .social-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Form Adjustments */
+    .contact-form {
+        padding: 20px;
+    }
+
+    .form-control {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    /* Form Row Stacking */
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    /* Reduce Heading Sizes */
+    .section-heading {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+
+    /* Mobile Text Adjustments */
+    .detail-label {
+        font-size: 0.8rem;
+    }
+
+    .social-item span {
+        font-size: 0.85rem;
+    }
+}
+
+/* EXTRA SMALL DEVICES (e.g. Galaxy Fold) */
+@media (max-width: 340px) {
+    /* Further Reduce Padding */
+    .elevated-card {
+        padding: 15px;
+    }
+
+    /* Adjust Font Sizes */
+    .card-heading {
+        font-size: 1.3rem;
+    }
+
+    .detail-value {
+        font-size: 0.9rem;
+    }
+
+    /* Form Elements */
+    .form-control {
+        font-size: 13px;
+    }
+
+    .submit-btn {
+        font-size: 0.8rem;
     }
 }

@@ -1,17 +1,16 @@
 $(document).ready(function() {
-
+    // Variables
     let lastScrollTop = 0; // Variable to store the last scroll position
     const header = document.querySelector('.main-header'); // Select the header
 
+    // Scroll Event Listener
     window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop; // Get current scroll position
 
         if (scrollTop > lastScrollTop) {
-            // Scrolling down
-            header.classList.add('header-hidden'); // Hide the header
+            header.classList.add('header-hidden'); // Hide header on scroll down
         } else {
-            // Scrolling up
-            header.classList.remove('header-hidden'); // Show the header
+            header.classList.remove('header-hidden'); // Show header on scroll up
         }
 
         lastScrollTop = scrollTop; // Update the last scroll position
@@ -69,24 +68,19 @@ $(document).ready(function() {
             setTimeout(() => {
                 toast.remove();
             }, 300);
-        }, 2000);
+        }, 3000);
     }
     
     // Smooth scrolling for navigation links
     $('nav ul li a').on('click', function(e) {
         if (this.hash !== '') {
             e.preventDefault();
-
             const hash = this.hash;
-            const headerHeight = $('.main-header').outerHeight(); // Get the height of the header
-
-            // Calculate the target position, accounting for the header height
-            const targetPosition = $(hash).offset().top - headerHeight;
-
-            // Animate the scroll to the adjusted position
             $('html, body').animate({
-                scrollTop: targetPosition
-            }, 800);
+                scrollTop: $(hash).offset().top
+            }, 800, function() {
+                window.location.hash = hash;
+            });
         }
     });
 
@@ -118,32 +112,9 @@ $(document).ready(function() {
         var message = $('#message').val();
 
         if (name && email && message) {
-            isSubmitting = true; // Prevent further submissions
-            $('#submit-btn').prop('disabled', true).text('Sending...'); // Disable button and show loading text
-
-            $.ajax({
-                url: 'https://docs.google.com/forms/d/1IRNXN8P8bP-lH3eH8cSQa-SNwbeCjqzKsHbMIVpNRhY/formResponse',
-                data: {
-                    'entry.915683784': name,
-                    'entry.486445772': email,
-                    'entry.30802087': message
-                },
-                type: 'POST',
-                dataType: 'xml',  // Expect an XML response from Google Forms
-                complete: function(xhr, status) {
-                    // Always assume success since Google Forms does not return proper status
-                    if (status === 'success' || xhr.status === 0) {
-                        showToast('Message sent successfully!', 'success');
-                        $('#contact-form')[0].reset();
-                    } else {
-                        showToast('There was an error, but your message might have been sent.', 'error');
-                    }
-
-                    // Re-enable the form and button
-                    isSubmitting = false;
-                    $('#submit-btn').prop('disabled', false).text('Send Message');
-                }
-            });
+            isSubmitting = true;
+            // Perform form submission (e.g., AJAX request)
+            // Reset isSubmitting after submission
         } else {
             showToast('Please fill out all fields.', 'warning');
         }
@@ -163,7 +134,7 @@ $(document).ready(function() {
     function filterProjects(searchTerm, filterTerm) {
         $('#projects article').each(function() {
             const projectTitle = $(this).find('h3').text().toLowerCase();
-            const projectCategory = $(this).data('category');
+            const projectCategory = $(this).data('category').toLowerCase();
 
             if ((projectTitle.includes(searchTerm) || searchTerm === '') &&
                 (projectCategory === filterTerm || filterTerm === 'all')) {
@@ -173,9 +144,7 @@ $(document).ready(function() {
             }
         });
     }
-});
 
-$(document).ready(function() {
     // Toggle navigation menu on hamburger menu click
     $('.hamburger-menu').on('click', function() {
         $('.main-nav').toggleClass('active');
@@ -298,41 +267,34 @@ function createProjectModal() {
         // Add images to carousel
         projectData.images.forEach((img, index) => {
             const slide = document.createElement('div');
-            slide.className = 'carousel-slide';
-            slide.innerHTML = `<img src="${img}" alt="${projectData.title} slide ${index + 1}">`;
+            slide.classList.add('carousel-slide');
+            slide.innerHTML = `<img src="${img}" alt="Project Image ${index + 1}">`;
             carousel.appendChild(slide);
 
-            // Create dot for this slide
             const dot = document.createElement('button');
-            dot.className = 'carousel-dot' + (index === 0 ? ' active' : '');
-            dot.onclick = () => {
+            dot.classList.add('carousel-dot');
+            dot.addEventListener('click', () => {
                 currentSlide = index;
                 updateCarousel();
-            };
+            });
             dotsContainer.appendChild(dot);
         });
 
         // Add technologies
-        technologies.innerHTML = `
-            <h3>Technologies Used</h3>
-            <div class="tech-pills">
-                ${projectData.technologies.map(tech => `<span class="pill">${tech}</span>`).join('')}
-            </div>`;
+        technologies.innerHTML = projectData.technologies.map(tech => `<span class="pill">${tech}</span>`).join('');
 
         // Add links
         links.innerHTML = `
-            <div class="project-buttons">
-                ${projectData.github ? `
-                    <a href="${projectData.github}" class="btn" target="_blank">
-                        <i class="fab fa-github"></i> View in GitHub    
-                    </a>` : ''}
-            </div>`;
+            <a href="${projectData.github}" target="_blank" class="btn">View on GitHub</a>
+        `;
 
         // Show modal
-        currentSlide = 0;
-        updateCarousel();
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+
+        // Initialize carousel
+        currentSlide = 0;
+        updateCarousel();
     }
 
     return showProjectModal;
@@ -344,18 +306,14 @@ const showProjectModal = createProjectModal();
 // Update the project click handler
 document.querySelectorAll('#projects article').forEach(article => {
     article.addEventListener('click', () => {
-      const getData = (attr) => article.dataset[attr] ? JSON.parse(article.dataset[attr]) : [];
-      
-      const projectData = {
-        title: article.querySelector('h3').textContent,
-        date: article.querySelector('.project-meta').textContent,
-        description: article.querySelector('p').textContent,
-        images: getData('images'),
-        technologies: getData('technologies'),
-        github: article.dataset.github || '#',
-        demo: article.dataset.demo || '#'
-      };
-      
-      showProjectModal(projectData);
+        const projectData = {
+            title: article.querySelector('h3').textContent,
+            date: article.querySelector('.project-meta').textContent,
+            description: article.querySelector('p').textContent,
+            images: JSON.parse(article.dataset.images),
+            technologies: JSON.parse(article.dataset.technologies),
+            github: article.dataset.github
+        };
+        showProjectModal(projectData);
     });
-  });
+});
