@@ -113,8 +113,30 @@ $(document).ready(function() {
 
         if (name && email && message) {
             isSubmitting = true;
-            // Perform form submission (e.g., AJAX request)
-            // Reset isSubmitting after submission
+            $('#submit-btn').prop('disabled', true).text('Sending...'); // Disable button and show loading text
+            
+            $.ajax({
+                url: 'https://docs.google.com/forms/d/1IRNXN8P8bP-lH3eH8cSQa-SNwbeCjqzKsHbMIVpNRhY/formResponse',
+                data: {
+                    'entry.915683784': name,
+                    'entry.486445772': email,
+                    'entry.30802087': message
+                },
+                type: 'POST',
+                dataType: 'xml',
+                complete: function(xhr, status) {
+                    if (status === 'success' || xhr.status === 0) {
+                        showToast('Message sent successfully!', 'success');
+                        $('#contact-form')[0].reset();
+                    } else {
+                        showToast('An error occurred. Please try again.', 'error');
+                    }
+
+                    // Re-enable the form and button
+                    isSubmitting = false;
+                    $('#submit-btn').prop('disabled', false).text('Send Message');
+                }
+            });
         } else {
             showToast('Please fill out all fields.', 'warning');
         }
