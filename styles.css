@@ -1293,6 +1293,10 @@ footer {
     color: var(--text-color);
 }
 
+.technologies-used {
+    gap: 10px;
+}
+
 .tech-pills {
     display: flex;
     flex-wrap: wrap;
